@@ -1,10 +1,5 @@
 import * as React from "react";
-import { withStyle, StyleRules } from "./hoc";
-
-interface IHOCCProps {
-  id: string;
-  styles: StyleRules;
-}
+import { withStyle, StyleRules, IStylesProps } from "./hoc";
 
 const s: StyleRules = {
   width: "100px",
@@ -12,8 +7,10 @@ const s: StyleRules = {
   backgroundColor: "#980987",
 };
 
-class HOCComponent extends React.Component<IHOCCProps> {
-  constructor(props: IHOCCProps) {
+type IHOCProps = IStylesProps;
+
+class HOCComponent extends React.Component<IHOCProps> {
+  constructor(props: IHOCProps) {
     super(props);
   }
 
@@ -25,4 +22,4 @@ class HOCComponent extends React.Component<IHOCCProps> {
   }
 }
 
-export default withStyle(s)<IHOCCProps>(HOCComponent);
+export default withStyle(s)(HOCComponent);
