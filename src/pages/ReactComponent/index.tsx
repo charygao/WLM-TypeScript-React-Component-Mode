@@ -14,6 +14,7 @@ import MyContext from "./components/Context";
 import MyPortals from "./components/Portals";
 import MyFragments from "./components/Fragments";
 import MyPureComponent from "./components/PureComponent";
+import MyHOCComponent from "./components/HOCComponent";
 
 const s = createStyles({});
 
@@ -95,7 +96,7 @@ class ReactPage extends React.Component<IReactPageProps, IReactPageState> {
         )}
         {value === 6 && (
           <TabContainer>
-            ...
+            <MyHOCComponent />
           </TabContainer>
         )}
       </div>

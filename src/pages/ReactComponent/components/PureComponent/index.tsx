@@ -9,12 +9,15 @@ import {
 } from "./types";
 import styles from "./style.css";
 
+let index = 0;
+
 class MyPureComponent extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
       text: "",
       name: "",
+      arr: [],
     };
   }
 
@@ -26,8 +29,18 @@ class MyPureComponent extends React.Component<IProps, IState> {
   }
 
   public handleClick = () => {
+    index ++;
+    if (index === 1) {
+      this.state.arr.push("1");
+      this.state.arr.push("2");
+    } else {
+      this.state.arr.length = 0;
+      this.state.arr.push("2");
+      this.state.arr.push("1");
+    }
     this.setState({
       text: this.state.name,
+      arr: this.state.arr,
     });
   }
 
@@ -35,6 +48,7 @@ class MyPureComponent extends React.Component<IProps, IState> {
     const {
       name,
       text,
+      arr,
     } = this.state;
     return (
       <div>
@@ -59,6 +73,7 @@ class MyPureComponent extends React.Component<IProps, IState> {
         </div>
         <MyText
           text={text}
+          arr={arr}
         />
         <MyComparison
           text={text}

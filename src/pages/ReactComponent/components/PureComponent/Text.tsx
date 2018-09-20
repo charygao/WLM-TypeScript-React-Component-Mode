@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 
 interface IMyTextProps {
   text: string;
+  arr: any[];
 }
 
 class MyText extends React.PureComponent<IMyTextProps> {
