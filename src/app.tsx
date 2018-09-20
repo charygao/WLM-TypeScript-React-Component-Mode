@@ -7,6 +7,7 @@ import { setGlobalSyncId } from "./global/actions";
 import ReduxPage from "./pages/Redux";
 import ReactPage from "./pages/ReactComponent";
 import IMmutable from "./pages/Immutable";
+import Communication from "./pages/Communication";
 import styles from "./style.css";
 import { IAppComponentProps } from "./types";
 
@@ -33,6 +34,7 @@ class AppComponent extends React.Component<IAppComponentProps, {}> {
                 {/* layout struct(like nav, sidebar...) */}
               <div className={styles["nav-container"]}>
                 <NavLink exact to="/">React Component</NavLink>
+                <NavLink to="/communication">React Communication</NavLink>
                 <NavLink to="/redux">Redux</NavLink>
                 <NavLink to="/immutable">immutable</NavLink>
               </div>
@@ -40,6 +42,7 @@ class AppComponent extends React.Component<IAppComponentProps, {}> {
             {/* register routes */}
             <div className={styles["route-container"]}>
               <Route exact path="/" component={ReactPage} />
+              <Route path="/communication" component={Communication} />
               <Route path="/redux" component={ReduxPage} />
               <Route path="/immutable" component={IMmutable} />
             </div>

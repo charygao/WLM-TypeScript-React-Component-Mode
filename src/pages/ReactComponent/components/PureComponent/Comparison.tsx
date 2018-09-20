@@ -6,22 +6,25 @@ interface IMyComparisonProps {
 }
 
 class MyComparison extends React.Component<IMyComparisonProps> {
+  public index: number;
   constructor(props: IMyComparisonProps) {
     super(props);
+    this.index = 0;
   }
 
-  public shouldComponentUpdate(nextProps: IMyComparisonProps) {
-    if (this.props.text === nextProps.text) {
-      return false;
-    }
-    return true;
-  }
+  // public shouldComponentUpdate(nextProps: IMyComparisonProps) {
+  //   if (this.props.text === nextProps.text) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   public render() {
     const { text } = this.props;
+    this.index = this.index + 1;
     return (
       <Typography>
-        Component 值：{ text }
+        Component 值：{ text } || {this.index}
       </Typography>
     );
   }
